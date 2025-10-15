@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glyph_Maker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100;300;400;500;700;900&display=swap">
+    <script src="punctuation.js"></script>
+</head>
+<body>
+    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <!-- Judul -->
+        <h1 class="text-5xl font-bold p-0 pt-10" style="font-family: 'Bricolage Grotesque', sans-serif;">Punctuation Maker</h1>
+        <p class="p-5 pt-0" style="font-family: 'Bricolage Grotesque', sans-serif;">Created by Shinz</p>
+
+        <div id="input" class="flex h-7 align-center justify-center ">
+            <!-- Input Ketebalan -->
+            <p class="pr-4 pt-0" style="font-family: 'Bricolage Grotesque', sans-serif;">Tebal:</p>
+            <input class="border border-gray-300 rounded-md p-2" style="font-family: 'Bricolage Grotesque', sans-serif;" type="number" name="" id="tebal" value="25" max="60" min="1">
+
+            <!-- Input Ketipisan -->
+            <p class="pl-9 pr-4 pt-0" style="font-family: 'Bricolage Grotesque', sans-serif;">Tipis:</p>
+            <input class="border border-gray-300 rounded-md p-2" style="font-family: 'Bricolage Grotesque', sans-serif;" type="number" name="" id="tipis" value="5" max="60" min="1">
+        </div>
+        
+        <div>
+            <button class="bg-blue-500 text-white rounded-md p-2 mt-10" style="font-family: 'Bricolage Grotesque', sans-serif;" onclick="buat()">Buat Sekarang!</button>
+
+            <button class="bg-green-500 text-white rounded-md p-2 mt-2 mb-8" style="font-family: 'Bricolage Grotesque', sans-serif;" onclick="downloadSVG()">Download SVG</button>
+        </div>
+
+        <!-- PREVIEW AREA -->
+        <p class="pb-5" style="font-family: 'bricolage grotesque';"><b>Note:</b> Yang Berwarna merah adalah line/path jangan lupa diubah ke Shape/Object</p>
+        <div class="flex gap-5 flex-wrap items-center justify-center w-[550px]">
+            <!-- Tanda Seru/ Exclam-->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px] border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="exclam" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                <polygon id="exclamLine" points="73, 90 77,90 100,0 50, 0" />
+                <circle id="dot" cx="75" cy="125" r="25" />
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">!</p>
+            </div>
+    
+            <!-- Tanda Kutip/ Double Quote-->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px] border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="doubleQuote" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                
+                <circle id="dotLeft" cx="45" cy="25" r="25" />
+    
+                <circle id="dotRight" cx="105" cy="25" r="25" />
+    
+                <path id="quoteLeft" d="M 67.5, 25 C 68, 50 45, 65 25, 65" fill="none" stroke="black" stroke-width="5px"/>
+    
+                <path id="quoteRight" d="M 127.25, 25 C 127.25,50 105,65 85,65" fill="none" stroke="black" stroke-width="5px"/>
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">"</p>
+            </div>
+    
+    
+            <!-- Tanda Pagar/ Hashtag-->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="hashtag" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                    <!-- Garis Hashtag Kiri -->
+                    <polygon id="hashtagLineLeft" points="25,150 75,150 125,0 75,0" fill="black" transform="translate(-30, 0)"/>
+
+                    <!-- Garis Hashtag Kanan -->
+                    <polygon id="hashtagLineRight" points="25,150 75,150 125,0 75,0" fill="black" transform="translate(30, 0)"/>
+
+                    <!-- Garis Hashtag Bawah -->    
+                    <polygon id="hashtagLineBottom" points="0,75 135,75 135,70 0,70" fill="black" transform="translate(0, 30)"/>
+
+                    <!-- Garis Hashtag Atas -->
+                    <polygon id="hashtagLineTop" points="15,75 150,75 150,70 15,70" fill="black" transform="translate(0, -30)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">#</p>
+            </div> 
+
+            <!-- Dollar Sign -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="dollar" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                
+                <line id="dollarLine" x1="75" y1="-50" x2="75" y2="200" stroke="red" stroke-width="5"/>
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">$</p>
+            </div> 
+
+            <!-- Percent -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="percent" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                
+                <polygon id="percentLine" points="20,150 25,150 130,0 125,0" fill="black"/>
+
+                <circle id="percentDotLeft" cx="35" cy="35" r="35" transform="translate(0, 0)"/>
+
+                <circle id="percentDotRight" cx="115" cy="115" r="35" transform="translate(0, 0)"/>
+
+                <ellipse id="percentDotLeftInner" cx="35" cy="35" r="10" fill="white"/>
+
+                <ellipse id="percentDotRightInner" cx="115" cy="115" rx="10" ry="10" fill="white"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">%</p>
+            </div>
+
+            <!-- Ampersand & -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="doubleQuote" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">&</p>
+            </div>
+
+            <!-- Single Quote -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="singleQuote" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <circle id="singleQuoteDot" cx="45" cy="25" r="25" transform="translate(30, 0)"/>
+
+                <path id="singleQuoteLine" d="M 67.5, 25 C 68, 50 45, 65 25, 65" fill="none" stroke="black" stroke-width="5px" transform="translate(30, 0)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">'</p>
+            </div>
+
+            <!-- Parent left -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="parentLeft" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <path id="parentLeftLine" d="
+                M 75,150 L75,145 
+                C 55,145 50, 125 50, 75 
+                C 50,25 55,5 75,5 L75,0 
+                C 50,0 25,0 25,75 
+                C 25,100 25,150 75,150" fill="red" transform="translate(0, 0)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">(</p>
+            </div>
+
+            <!-- Parent right -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="parentRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <path id="parentRightLine" d="
+                M 75,150 L75,145 
+                C 55,145 50, 125 50, 75 
+                C 50,25 55,5 75,5 L75,0 
+                C 50,0 25,0 25,75 
+                C 25,100 25,150 75,150" fill="red" transform="scale(-1,1) translate(-150,0)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">)</p>
+            </div>
+
+            <!-- Asterisk -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="Asterisk" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <line id="asteriskA" x1="75" y1="0" x2="75" y2="50" stroke="red" stroke-width="5"/>
+                <line id="asteriskB" x1="75" y1="0" x2="75" y2="50" stroke="red" stroke-width="5" transform="rotate(60 75 25)"/>
+                <line id="asteriskC" x1="75" y1="0" x2="75" y2="50" stroke="red" stroke-width="5" transform="rotate(-60 75 25)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">*</p>
+            </div>
+
+            <!-- Plus -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="plus" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <line id="vertical" x1="75" y1="35" x2="75" y2="110" stroke="red" stroke-width="5"/>
+                <line id="horizontal" x1="75" y1="35" x2="75" y2="110" stroke="red" stroke-width="5" transform="rotate(90 75 72.5)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">+</p>
+            </div>
+
+            <!-- Comma -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="comma" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <circle id="commaDot" cx="45" cy="25" r="25" transform="translate(30, 100)"/>
+
+                <path id="commaLine" d="M 67.5, 25 C 68, 50 45, 65 25, 65" fill="none" stroke="black" stroke-width="5px" transform="translate(30, 100)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">,</p>
+            </div>
+
+            <!-- Minus -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="minus" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <line id="minusLine" x1="75" y1="35" x2="75" y2="110" stroke="red" stroke-width="5" transform="rotate(90 75 72.5)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">-</p>
+            </div>
+
+            <!-- Period -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="period" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <circle id="periodDot" cx="75" cy="125" r="25" fill="blue"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">.</p>
+            </div>
+
+            <!-- Slash -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="slash" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                
+                <polygon id="slashLine" points="20,150 25,150 130,0 125,0" fill="black"/>
+                    
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">/</p>
+            </div>
+
+            <!-- colon -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="doubleQuote" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                
+                <circle id="dotLeft" cx="75" cy="50" r="25" />
+                <circle id="dotRight" cx="75" cy="125" r="25" />
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">:</p>
+            </div>
+
+            <!-- semicolon -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="doubleQuote" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                
+                <circle id="dotLeft" cx="75" cy="50" r="25" />
+                <circle id="dotLeft" cx="45" cy="25" r="25" transform="translate(30, 100)"/>
+                <path id="quoteLeft" d="M 67.5, 25 C 68, 50 45, 65 25, 65" fill="none" stroke="black" stroke-width="5px" transform="translate(30, 100)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">;</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
