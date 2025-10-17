@@ -338,6 +338,146 @@ function slash(){
 
 }
 
+function colon(){
+    const w = Number(document.getElementById("tebal").value);
+
+    const colonTop = document.getElementById("colonTop");
+    colonTop.setAttribute("cx", 75);
+    colonTop.setAttribute("cy", 75);
+    colonTop.setAttribute("r", w/2);
+    colonTop.setAttribute("fill", "black");
+
+    const colonBottom = document.getElementById("colonBottom");
+    colonBottom.setAttribute("cx", 75);
+    colonBottom.setAttribute("cy", 150-w/2);
+    colonBottom.setAttribute("r", w/2);
+    colonBottom.setAttribute("fill", "black");
+}
+
+function semicolon(){
+    const w = Number(document.getElementById("tebal").value);
+    const t = Number(document.getElementById("tipis").value);
+
+    const width = document.getElementById("semicolon");
+
+    width.setAttribute("width", 150);
+
+    const colon = document.getElementById("semicolonDotTop");
+    colon.setAttribute("cx", 75-w/2-5);
+    colon.setAttribute("cy", 75);
+    colon.setAttribute("r", w/2);
+    colon.setAttribute("fill", "black");
+    colon.setAttribute("transform", `translate(${w-5}, 0)`);
+
+    const dot = document.getElementById("semicolonDotBottom");
+    dot.setAttribute("cx", 75-w/2-5);
+    dot.setAttribute("cy", w/2);
+    dot.setAttribute("r", w/2);
+    dot.setAttribute("fill", "black");
+    dot.setAttribute("transform", `translate(${w-5}, ${150-w})`);
+
+
+    const line = document.getElementById("semicolonLine");
+    let path = `M ${75-5-(t/2)}, ${w/2} C ${75-5-(t/2)}, ${w} ${75-5-(w/2)}, ${w+w/4} ${75-5-w+w/3}, ${w+w/3}`;
+    line.setAttribute("d", path);
+    line.setAttribute("stroke-width", t);
+    line.setAttribute("stroke", "red");
+    line.setAttribute("transform", `translate(${w-5}, ${150-w})`);
+}
+
+function lessthan(){
+    const t = Number(document.getElementById("tipis").value);
+
+    const lessthan = document.getElementById("lessthanLineA");
+    lessthan.setAttribute("stroke-width", t);
+
+    const lessthanB = document.getElementById("lessthanLineB");
+    lessthanB.setAttribute("stroke-width", t);
+    
+}
+
+function equal(){
+    const t = Number(document.getElementById("tipis").value);
+
+    equalLineA.setAttribute("stroke-width", t);
+    equalLineB.setAttribute("stroke-width", t);
+}
+
+function morethan(){
+    const t = Number(document.getElementById("tipis").value);
+
+    const morethan = document.getElementById("morethanLineA");
+    morethan.setAttribute("stroke-width", t);
+
+    const morethanB = document.getElementById("morethanLineB");
+    morethanB.setAttribute("stroke-width", t);
+    
+}
+
+function braceleft() {
+    const w = Number(document.getElementById("tebal").value);
+    const t = Number(document.getElementById("tipis").value);
+
+    const braceVertical = document.getElementById("braceVertical");
+    braceVertical.setAttribute("width", w);
+    braceVertical.setAttribute("height", 150);
+    braceVertical.setAttribute("x", 75-w);
+    braceVertical.setAttribute("y", 0);
+
+    const braceTop = document.getElementById("braceTop");
+    braceTop.setAttribute("width", w*3/2);
+    braceTop.setAttribute("height", t);
+    braceTop.setAttribute("x", 75-w);
+    braceTop.setAttribute("y", 0);
+
+    const braceBottom = document.getElementById("braceBottom");
+    braceBottom.setAttribute("width", w*3/2);
+    braceBottom.setAttribute("height", t);
+    braceBottom.setAttribute("x", 75-w);
+    braceBottom.setAttribute("y", 150-t);
+
+}
+
+function backslash() {
+    const w = Number(document.getElementById("tebal").value);
+    const t = Number(document.getElementById("tipis").value);
+
+    const backslashLine = document.getElementById("backslashLine");
+    width.setAttribute("width", 150);
+
+    let rad = 30 * Math.PI/180;
+    let sudut = Math.tan(rad)*150;
+
+    //Shape line
+    const slashLine = document.getElementById("slashLine");
+    let line = `${75-t/2-sudut/2},150 ${75+t/2-sudut/2},150 ${75+t/2+sudut/2},0 ${75-t/2+sudut/2},0`;
+    slashLine.setAttribute("points", line);
+}
+
+function braceright() {
+    const w = Number(document.getElementById("tebal").value);
+    const t = Number(document.getElementById("tipis").value);
+
+    const braceVertical = document.getElementById("braceVertical");
+    braceVertical.setAttribute("width", w);
+    braceVertical.setAttribute("height", 150);
+    braceVertical.setAttribute("x", 75-w);
+    braceVertical.setAttribute("y", 0);
+
+    const braceTop = document.getElementById("braceTop");
+    braceTop.setAttribute("width", w*3/2);
+    braceTop.setAttribute("height", t);
+    braceTop.setAttribute("x", 75-w);
+    braceTop.setAttribute("y", 0);
+
+    const braceBottom = document.getElementById("braceBottom");
+    braceBottom.setAttribute("width", w*3/2);
+    braceBottom.setAttribute("height", t);
+    braceBottom.setAttribute("x", 75-w);
+    braceBottom.setAttribute("y", 150-t);
+
+}
+
 // Tombol akan panggil kedua fungsi
 function buat(){
     exclam();
@@ -354,6 +494,12 @@ function buat(){
     minus();
     period();
     slash();
+    colon();
+    semicolon();
+    lessthan();
+    equal();
+    morethan();
+    braceleft();
 }
 
 document.addEventListener("DOMContentLoaded", buat);
