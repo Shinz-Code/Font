@@ -237,10 +237,10 @@
 
             <!-- colon -->
             <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
-                <svg id="doubleQuote" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                <svg id="colon" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
                 
-                <circle id="dotLeft" cx="75" cy="50" r="25" />
-                <circle id="dotRight" cx="75" cy="125" r="25" />
+                <circle id="colonTop" cx="75" cy="50" r="25" />
+                <circle id="colonBottom" cx="75" cy="125" r="25" />
 
                 </svg>
                 <hr class="border-gray-300 w-full border-[2px]">
@@ -249,15 +249,200 @@
 
             <!-- semicolon -->
             <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
-                <svg id="doubleQuote" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+                <svg id="semicolon" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
                 
-                <circle id="dotLeft" cx="75" cy="50" r="25" />
-                <circle id="dotLeft" cx="45" cy="25" r="25" transform="translate(30, 100)"/>
-                <path id="quoteLeft" d="M 67.5, 25 C 68, 50 45, 65 25, 65" fill="none" stroke="black" stroke-width="5px" transform="translate(30, 100)"/>
+                <circle id="semicolonDotTop" cx="75" cy="75" r="25" transform="translate(30, 100)"/>
+
+                <circle id="semicolonDotBottom" cx="45" cy="25" r="25" transform="translate(30, 100)"/>
+
+                <path id="semicolonLine" d="M 67.5, 25 C 68, 50 45, 65 25, 65" fill="none" stroke="black" stroke-width="5px" transform="translate(30, 100)"/>
 
                 </svg>
                 <hr class="border-gray-300 w-full border-[2px]">
                 <p class="text-center">;</p>
+            </div>
+
+            <!-- Lessthan -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="lessthan" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <line id="lessthanLineA" x1="100" y1="50" x2="50" y2="75" stroke="red" stroke-width="5"/>
+                <line id="lessthanLineB" x1="100" y1="100" x2="50" y2="75" stroke="red" stroke-width="5"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center"><</p>
+            </div>
+
+            <!-- Equal -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="equal" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <line id="equalLineA" x1="40" y1="75" x2="110" y2="75" stroke="red" stroke-width="5" transform="translate(0, 15)"/>
+
+                <line id="equalLineB" x1="40" y1="75" x2="110" y2="75" stroke="red" stroke-width="5" transform="translate(0, -15)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">=</p>
+            </div>
+
+            <!-- Morethan -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="morethan" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <line id="morethanLineA" x1="50" y1="50" x2="100" y2="75" stroke="red" stroke-width="5"/>
+                <line id="morethanLineB" x1="50" y1="100" x2="100" y2="75" stroke="red" stroke-width="5"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center"><</p>
+            </div>
+
+            <!-- BraceLeft -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceLeft" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">[</p>
+            </div>
+
+            <!-- Backslash -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="backslash" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <polygon id="backslashLine" points="20,150 25,150 130,0 125,0" fill="black" transform="translate(150, 0)scale(-1, 1)"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">\</p>
+            </div>
+
+            <!-- BraceRight -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">]</p>
+            </div>
+
+            <!-- BraceRight -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">^</p>
+            </div>
+
+            <!-- Underscore -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">_</p>
+            </div>
+
+            <!-- Acute -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">`</p>
+            </div>
+
+            <!--  -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">{</p>
+            </div>
+
+            <!--  -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">|</p>
+            </div>
+
+            <!--  -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">}</p>
+            </div>
+
+            <!--  -->
+            <div class="flex flex-col gap-2 items-center text-center w-[520px]  border border-gray-300 rounded-md p-2 bg-gray-200">
+                <svg id="braceRight" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+
+                <rect id="braceVertical" x="50" y="0" width="25" height="150" fill="black"/>
+
+                <rect id="braceTop" x="50" y="0" width="35" height="5" fill="black"/>
+
+                <rect id="braceBottom" x="50" y="145" width="35 " height="5" fill="black"/>
+
+                </svg>
+                <hr class="border-gray-300 w-full border-[2px]">
+                <p class="text-center">}</p>
             </div>
         </div>
     </div>
